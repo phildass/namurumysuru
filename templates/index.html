@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namuru Mysuru - Discover Mysuru</title>
+    <meta name="description" content="Your guide to everything in Mysuru - Find restaurants, hotels, attractions, and more. Stay updated with the latest news from the city.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>🏰 Namuru Mysuru</h1>
+                    <p class="tagline">Discover the City of Palaces</p>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Welcome to Mysuru</h2>
+            <p class="hero-subtitle">Your gateway to everything in the City of Palaces</p>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="What are you looking for in Mysuru?">
+                <button class="search-button" onclick="performSearch()">🔍 Search</button>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Quick Categories -->
+    <section id="services" class="categories-section">
+        <div class="container">
+            <h2 class="section-title">What do you need?</h2>
+            <p class="section-subtitle">Find anything, anywhere in Mysuru</p>
+            <div id="categoriesGrid" class="categories-grid">
+                <!-- Categories will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Places -->
+    <section class="popular-section">
+        <div class="container">
+            <h2 class="section-title">Popular Destinations</h2>
+            <p class="section-subtitle">Must-visit places in Mysuru</p>
+            <div id="popularGrid" class="popular-grid">
+                <!-- Popular places will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news-section">
+        <div class="container">
+            <h2 class="section-title">Latest News & Updates</h2>
+            <p class="section-subtitle">Stay informed about Mysuru</p>
+            <div id="newsGrid" class="news-grid">
+                <!-- News items will be loaded dynamically -->
+                <div class="loading">Loading news...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Results Modal -->
+    <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Search Results</h2>
+            <div id="searchResults" class="search-results">
+                <!-- Search results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Mysuru</h2>
+            <div class="about-content">
+                <p>Mysuru (Mysore) is a city in the southern Indian state of Karnataka. Known for its heritage structures, 
+                   palaces, and vibrant culture, Mysuru is one of the most popular tourist destinations in India.</p>
+                <p>This platform helps tourists and locals discover the best services, attractions, restaurants, 
+                   hotels, and everything else the beautiful city has to offer.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Namuru Mysuru. Your guide to the City of Palaces.</p>
+            <p>Made with ❤️ for Mysuru</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
