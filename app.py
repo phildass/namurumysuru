@@ -78,10 +78,13 @@ def get_news():
             feed = feedparser.parse(source['rss'])
             
             for entry in feed.entries[:5]:  # Get top 5 items from each source
+                summary = entry.get('summary', '') or ''  # Handle None values
+                description = summary[:200] + '...' if summary else ''
+                
                 news_items.append({
                     'title': entry.get('title', 'No title'),
                     'link': entry.get('link', '#'),
-                    'description': entry.get('summary', '')[:200] + '...' if entry.get('summary') else '',
+                    'description': description,
                     'published': entry.get('published', ''),
                     'source': source['name']
                 })
