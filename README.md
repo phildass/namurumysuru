@@ -45,14 +45,25 @@ pip install -r requirements.txt
 
 ## Running the Application
 
-1. Start the Flask server:
+### Development Mode
+
+1. Start the Flask server with debug mode:
 ```bash
+export FLASK_DEBUG=true  # On Windows: set FLASK_DEBUG=true
 python app.py
 ```
 
 2. Open your browser and navigate to:
 ```
 http://localhost:5000
+```
+
+### Production Deployment
+
+For production, do NOT enable debug mode. Use a production WSGI server like Gunicorn:
+```bash
+pip install gunicorn
+gunicorn -w 4 -b 0.0.0.0:5000 app:app
 ```
 
 ## Project Structure

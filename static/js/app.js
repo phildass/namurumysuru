@@ -154,12 +154,18 @@ function displaySearchResults(results, searchTerm) {
     resultsContainer.innerHTML = '';
     
     if (results.length === 0) {
-        resultsContainer.innerHTML = `
-            <div class="no-results">
-                <h3>No results found for "${searchTerm}"</h3>
-                <p>Try searching with different keywords or browse our categories.</p>
-            </div>
-        `;
+        const noResultsDiv = document.createElement('div');
+        noResultsDiv.className = 'no-results';
+        
+        const heading = document.createElement('h3');
+        heading.textContent = `No results found for "${searchTerm}"`;
+        
+        const paragraph = document.createElement('p');
+        paragraph.textContent = 'Try searching with different keywords or browse our categories.';
+        
+        noResultsDiv.appendChild(heading);
+        noResultsDiv.appendChild(paragraph);
+        resultsContainer.appendChild(noResultsDiv);
     } else {
         const header = document.createElement('h3');
         header.textContent = `Found ${results.length} results for "${searchTerm}"`;
